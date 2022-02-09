@@ -25,6 +25,8 @@ public class Main {
         binarytree.insertRight(binarytree1.root, 12);
 
         System.out.println(binarytree.areIdenticalTrees(binarytree.root, binarytree1.root));
+	
+	System.out.println(binarytree.areMirrorTrees(binarytree.root, binarytree1.root));
     }
 }
 
