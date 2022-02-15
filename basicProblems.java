@@ -33,7 +33,7 @@ public int findHeight(Node root) {
             int lh=height(root.left);
             int rh=height(root.right);
 
-            return (lh>rh?lh+1:rh+1);
+            return lh+rh;
         }
     }
 
