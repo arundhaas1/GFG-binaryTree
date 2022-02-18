@@ -1,3 +1,5 @@
+//Height of tree
+
 public int findHeight(Node root) {
         if(root==null){
             return 0;
@@ -11,7 +13,7 @@ public int findHeight(Node root) {
 
 //Number of Node
 
-public int findHeight(Node root) {
+public int noOfNode(Node root) {
          if(root==null){
             return 0;
         }else{
@@ -24,7 +26,7 @@ public int findHeight(Node root) {
 
 //Number of Leaf Nodes
 
-public int findHeight(Node root) {
+public int noOfLeafNodes(Node root) {
          if(root==null){
             return 0;
         }else if(root.left==null && root.right==null){
