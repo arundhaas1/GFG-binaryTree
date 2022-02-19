@@ -165,3 +165,65 @@ class BinaryTree{
 		}
 	}
 }
+
+//TOP VIEW
+
+package com.dhas;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
+import java.util.TreeMap;
+
+class Main{
+	public static void main(String args[]) {
+		BinaryTree tree = new BinaryTree();
+
+		tree.root = new Node(20);
+		tree.root.left = new Node(8);
+		tree.root.right = new Node(22);
+		tree.root.left.left = new Node(5);
+		tree.root.left.right = new Node(3);
+		tree.root.right.left = new Node(4);
+		tree.root.right.right = new Node(25);
+		tree.root.right.right.left = new Node(10);
+		tree.root.right.right.right = new Node(14);
+
+		tree.topView(tree.root);
+	}
+}
+class Node{
+	int data;
+	Node left, right;
+
+	public Node(int x){
+		data = x;
+		left = right = null;
+	}
+}
+
+class BinaryTree {
+	Node root;
+
+	public void topView(Node root) {
+		if (root == null) return;
+		leftSide(root);
+		if (root.right != null) {
+			rightSide(root.right);
+		}
+	}
+
+	public void leftSide(Node leftRoot) {
+		if (leftRoot.left != null) {
+			leftSide(leftRoot.left);
+		}
+		System.out.print(leftRoot.data + " ");
+	}
+
+	public void rightSide(Node rightRoot) {
+		System.out.print(rightRoot.data + " ");
+		if (rightRoot.right != null) {
+			rightSide(rightRoot.right);
+		}
+	}
+}
+
