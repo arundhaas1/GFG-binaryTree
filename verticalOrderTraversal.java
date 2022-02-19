@@ -1,6 +1,6 @@
 package com.dhas;
+import java.util.ArrayList;
 import java.util.TreeMap;
-import java.util.Vector;
 import java.util.Map.Entry;
 
 public class Main{
@@ -18,48 +18,43 @@ public class Main{
 		System.out.println("Vertical Order traversal is");
 		printVerticalOrder(root);
 	}
-
 	// Tree node
-	static class Node
-	{
+	static class Node{
 		int data;
 		Node left;
 		Node right;
 
-		Node(int x)
-		{
+		Node(int x){
 			data = x;
 			left = null;
 			right = null;
 		}
 	}
 
-	static void getVerticalOrder(Node root, int hd, TreeMap<Integer,Vector<Integer>> map){
+	static void getVerticalOrder(Node root, int hd, TreeMap<Integer,ArrayList<Integer>> map){
 		if(root == null)
 			return;
 
-		Vector<Integer> key =  map.get(hd);
-		if(key == null){
-			key = new Vector<>();
-			key.add(root.data);
+		ArrayList<Integer> datas =  map.get(hd);
+		if(datas == null){
+			datas = new ArrayList<>();
+			datas.add(root.data);
 		}
 		else
-			key.add(root.data);
+			datas.add(root.data);
 
-		map.put(hd, key);  //it makes as {hd=key,..} and store it
+		map.put(hd, datas);  //it makes as {hd=datas,..} and store it..hd is key and datas are value of array list
 		getVerticalOrder(root.left, hd-1, map);
 		getVerticalOrder(root.right, hd+1, map);
 	}
 
 	static void printVerticalOrder(Node root){
-		TreeMap<Integer,Vector<Integer>> map = new TreeMap<>();
+		TreeMap<Integer,ArrayList<Integer>> map = new TreeMap<>();
 		int hd =0;
 		getVerticalOrder(root,hd,map);
 
-		for (Entry<Integer, Vector<Integer>> entry : map.entrySet()){
+		for (Entry<Integer, ArrayList<Integer>> entry : map.entrySet()){
 			System.out.println(entry.getValue());
 		}
 	}
-
-
 }
